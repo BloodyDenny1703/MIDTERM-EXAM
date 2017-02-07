@@ -42,7 +42,7 @@
             <tr>
                 <td width="48%">1 Taga Box</td>
                 <td width="10%">
-                    <input type="text" name="txtBox" size="5" value="1.75">                 
+                    <input type="text" name="txtTag" size="5" value="1.75">                 
                 </td>
                 <td widt="43%">
                     <select size="1" name="qTag">
@@ -61,21 +61,23 @@
             <p align="center">Your total is:
                 <input type="text" name="txtTotal" size="10" value="0.00">
             </p>
-            <p align="center">Tender:
-                <input type="text" name="txtTender" size="10" value="0.00">
-            </p>
-            <p align="center">Change:
-                <input type="text" name="txtCha" size="10" value="0.00">
+            <p align="center">
+                <input type="submit" value="Calculate your Change" name="btnSubmit" onClick="calcChange()">
+              </p>
+                 <p align="center">Tender:
+                    <input type="text" name="txtTender" size="10" value="0.00">
+                </p>
+            <p align="center"> Change:
+               <input type="text" name="txtCha" size="10" value="0.00">
             </p>
         </p>
     </form>
     <script language="javascript">
         function calcTotal(){
-            var strRod, strBox, strTag, prRod, prBox, prTag, strTen, strCha, strTotal;
+            var strRod, strBox, strTag, prRod, prBox, prTag, strTotal;
             strRod=document.form.qRod.value;
             strBox=document.form.qBox.value;
             strTag=document.form.qTag.value;
-            
                         
             prRod=document.form.txtRod.value;
             prBox=document.form.txtBox.value;
@@ -87,10 +89,15 @@
                         
             strTotal=(strRod+strBox+strTag);            
             document.form.txtTotal.value=strTotal;
-            strCha=(strTotal-strTen);
-            document.form.txtCha.value=strCha;
             
             }
+        function calcChange(){
+            var strTotal, strChange, strTen;
+            
+            strChange=(strTotal-strTen);
+            document.form.txtChange.value=strChange;
+        
+        }
     </script>
     <p align="center">Click Button to Change Color Background<br>
         <input type="submit" value="White" name="bW" onclick="selectColor('White')">
